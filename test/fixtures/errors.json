@@ -1,0 +1,18 @@
+[
+"foo"," ","{","\n",
+"content"," ",":"," ","'\\\nWhile I was writing along\\\nI suddenly forgot to","\n",
+"add"," ","a"," ","backslash"," ","@"," ","the"," ","end"," ","of"," ","a"," ","line","'","\n\n",
+
+"background"," ",":"," ","url(http://example.com/img.png"," ","no-repeat",";","\n",
+"}","\n\n",
+
+"bar"," ","{","\n  ",
+"&",":","hover"," ","<"," ","`","baz","`"," ","{","\n    ",
+"$","var",":"," ","1337","\n  ",
+"}","\n",
+"}","\n\n",
+
+"/","/"," ","Oops",","," ","forgot"," ","that"," ","this"," ","isn’t"," ","sass",".","\n\n",
+
+"/* Let’s try a valid CSS comment instead\n\na[href|='Pity I forgot to close it, though']\n"
+]

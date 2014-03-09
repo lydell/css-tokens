@@ -1,0 +1,23 @@
+{
+  "name": "css-tokens",
+  "version": "0.1.0",
+  "author": "Simon Lydell",
+  "license": "MIT",
+  "description": "A regex that tokenizes CSS.",
+  "main": "index.js",
+  "repository": "lydell/css-tokens",
+  "keywords": [
+    "CSS",
+    "css",
+    "token",
+    "tokenize",
+    "regex"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "^1.17.1",
+    "coffee-script": "~1.7.1"
+  }
+}

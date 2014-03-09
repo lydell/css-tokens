@@ -1,0 +1,32 @@
+@namespace svg url(http://www.w3.org/2000/svg);
+
+/**
+ * Block comment
+ */
+
+a{}
+svg|a{}
+*|a{}
+
+*, h1, *:matches(:hover, [href^=bar])::after,
+label ~ input, ul > li,
+foo\A9 bar, foo\A9qux {
+  animation-duration: 3s;
+  animation-name: slidein;
+  z-index: 9e100;
+  left: .1E-5px !important;
+  top: calc(99% - 5px + 0.3em * 3 / 1.23);
+  -moz-appearance: none;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  100% {
+    margin-left: 0;
+    width: 100%
+  }
+}
