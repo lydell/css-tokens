@@ -1,0 +1,20 @@
+foo {
+content : '\
+While I was writing along\
+I suddenly forgot to
+add a backslash @ the end of a line'
+
+background : url(http://example.com/img.png no-repeat;
+}
+
+bar {
+  &:hover < `baz` {
+    $var: 1337
+  }
+}
+
+// Oops, forgot that this isn’t sass.
+
+/* Let’s try a valid CSS comment instead
+
+a[href|='Pity I forgot to close it, though']
