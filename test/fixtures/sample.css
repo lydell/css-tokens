@@ -17,6 +17,7 @@ foo\A9 bar, foo\A9qux {
   left: .1E-5px !important;
   top: calc(99% - 5px + 0.3em * 3 / 1.23);
   -moz-appearance: none;
+  content: '#foo::before {content: \'inception\'}';
 }
 
 @keyframes slidein {
