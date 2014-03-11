@@ -1,5 +1,5 @@
 [
-"@","namespace"," ","svg"," ","url(http://www.w3.org/2000/svg)",";","\n\n",
+"@namespace"," ","svg"," ","url(http://www.w3.org/2000/svg)",";","\n\n",
 
 "/**\n * Block comment\n */","\n\n",
 
@@ -9,17 +9,19 @@
 
 "*",","," ","h1",","," ","*",":","matches","(",":","hover",","," ","[","href","^=","bar","]",")","::","after",",","\n",
 "label"," ","~"," ","input",","," ","ul"," ",">"," ","li",",","\n",
-"foo\\A9 bar",","," ","foo\\A9qux"," ","{","\n  ",
+"foo\\A9 bar",","," ","foo\\A9qux",",","\n",
+"#id",","," ","#0f5"," ","{","\n  ",
+"color",":"," ","#0f5",";","\n  ",
 "animation-duration",":"," ","3","s",";","\n  ",
 "animation-name",":"," ","slidein",";","\n  ",
 "z-index",":"," ","9e100",";","\n  ",
 "left",":"," ",".1E-5","px"," ","!","important",";","\n  ",
 "top",":"," ","calc","(","99","%"," ","-"," ","5","px"," ","+"," ","0.3","em"," ","*"," ","3"," ","/"," ","1.23",")",";","\n  ",
 "-moz-appearance",":"," ","none",";","\n  ",
-"content", ":", " ", "'#foo::before {content: \\'inception\\'}'", ";", "\n",
+"content",":"," ","'#foo::before {content: \\'inception\\'}'", ";","\n",
 "}","\n\n",
 
-"@","keyframes"," ","slidein"," ","{","\n  ",
+"@keyframes"," ","slidein"," ","{","\n  ",
 "from"," ","{","\n    ",
 "margin-left",":"," ","100","%",";","\n    ",
 "width",":"," ","300","%","\n  ",

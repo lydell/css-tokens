@@ -54,7 +54,7 @@ module.exports = ///
   )
   |
   ( # <punctuation>
-    [ @ \# . | [ \] ( ) { } , ; ! % ]
+    [ | [ \] ( ) { } , ; ! % ]
     |
     :{1,2}
   )
@@ -73,8 +73,11 @@ module.exports = ///
   |
   ( # <name>
     (?:
-      # Cannot (and should not) start with a digit, because numbers are already matched at this point.
-      # Cannot (and should not) start with two dashes, because the dash operator is already matched at this point.
+      [ @ . ]?(?! -- | -?\d )
+      |
+      \# # Can be followed by digits to support hex colors. The spec also allows (several) dashes.
+    )
+    (?:
       [ \w \- \u0080-\uFFFF ]
       |
       #{escape}

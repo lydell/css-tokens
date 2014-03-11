@@ -10,7 +10,9 @@ svg|a{}
 
 *, h1, *:matches(:hover, [href^=bar])::after,
 label ~ input, ul > li,
-foo\A9 bar, foo\A9qux {
+foo\A9 bar, foo\A9qux,
+#id, #0f5 {
+  color: #0f5;
   animation-duration: 3s;
   animation-name: slidein;
   z-index: 9e100;
