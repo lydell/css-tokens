@@ -14,7 +14,7 @@ cssString.match(cssTokens)
 var lastToken
 cssString.replace(cssTokens, function(token) {
   if (lastToken === "." && token === "foo") {
-    return "bar"
+    token = "bar"
   }
   lastToken = token
   return token
