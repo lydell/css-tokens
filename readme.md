@@ -24,7 +24,8 @@ cssString.replace(cssTokens, function(token) {
 Installation
 ============
 
-`npm install css-tokens`
+- `npm install css-tokens`
+- `component install lydell/css-tokens`
 
 ```js
 var cssTokens = require("css-tokens")
