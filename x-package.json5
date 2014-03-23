@@ -1,0 +1,33 @@
+{
+  name: "css-tokens",
+  version: "0.2.0",
+  author: "Simon Lydell",
+  license: "MIT",
+  description: "A regex that tokenizes CSS.",
+  main: "index.js",
+  keywords: [
+    "CSS",
+    "css",
+    "token",
+    "tokenize",
+    "regex"
+  ],
+  overlay: {
+    npm: {
+      repository: "lydell/css-tokens",
+      scripts: {
+        test: "mocha"
+      },
+      devDependencies: {
+        "mocha": "^1.17.1",
+        "coffee-script": "~1.7.1"
+      }
+    },
+    component: {
+      repo: "lydell/css-tokens",
+      scripts: [
+        "index.js"
+      ]
+    }
+  }
+}
