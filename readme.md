@@ -72,14 +72,6 @@ Limitations
 Tokenizing CSS using regexes—in fact, _one single regex_—won’t be
 perfect. But that’s not the point either.
 
-### `@` or `.` followed by a single `-` ###
-
-Ideally, `@-` and `.-` (followed by a non-name character) would be matched as
-invalid + operator, but they are in fact matched as names. This _could_ be
-fixed, but isn’t to simplify the regex. It doesn’t really matter.
-
-Note that `#-` is actually allowed by the spec.
-
 ### Quoted vs. unquoted urls ###
 
 The following is hardly a “limitation”, but could be mentioned:

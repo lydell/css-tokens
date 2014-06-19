@@ -45,20 +45,6 @@ module.exports = ///
     (?: [eE][+-]?\d+ )?
   )
   |
-  ( # <operator>
-    [ ~ | ^ $ * ]?=
-    |
-    [ > ~ + * / ]
-    |
-    -(?! [ \w \u0080-\uFFFF \\ ] )
-  )
-  |
-  ( # <punctuation>
-    [ | [ \] ( ) { } , ; ! % ]
-    |
-    :{1,2}
-  )
-  |
   ( # <unquotedUrl>
     # Quoted urls are matched as <name><punctuation><string><punctuation>.
     url\( (?! \s* [ " ' ] )
@@ -73,15 +59,30 @@ module.exports = ///
   |
   ( # <name>
     (?:
-      [ @ . ]?(?! -- | -?\d )
+      [ @ . ]?(?! -?\d )
       |
       \# # Can be followed by digits to support hex colors. The spec also allows (several) dashes.
     )
+    (?! -+ (?![ \w \- \u0080-\uFFFF \\ ]) )
     (?:
       [ \w \- \u0080-\uFFFF ]
       |
       #{escape}
     )+
+  )
+  |
+  ( # <operator>
+    [ ~ | ^ $ * ]?=
+    |
+    [ > ~ + * / ]
+    |
+    -
+  )
+  |
+  ( # <punctuation>
+    [ | [ \] ( ) { } , ; ! % ]
+    |
+    :{1,2}
   )
   |
   ( # <empty>

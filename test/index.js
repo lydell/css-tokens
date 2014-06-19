@@ -203,7 +203,7 @@ suite("tokens", function() {
 
     match("-/**/", "-")
     match("-''", "-")
-    match("--vendor-foo", "-")
+    match("--custom-prop", false)
 
   })
 
@@ -345,8 +345,8 @@ suite("tokens", function() {
       match(c + "-a")
       match(c + "-0", false)
       match(c + "-π")
-      match(c + "--a", false)
-      match(c + "--\\A", false)
+      match(c + "--a")
+      match(c + "--\\A")
       match(c + "a-")
       match(c + "a-b")
       match(c + "a--b")
@@ -356,6 +356,11 @@ suite("tokens", function() {
       match(c + "-moz-foo")
       match(c + "-o-foo")
       match(c + "-ms-foo")
+      match(c + "--custom-prop")
+      match(c + "-----dashes-ftw")
+      match(c + "-", false)
+      match(c + "--", false)
+      match(c + "---", false)
 
       match(c + "\\0")
       match(c + "\\0 ")
@@ -390,8 +395,6 @@ suite("tokens", function() {
       match(c + "\\\r\n", false)
     })
 
-    match("-", false) // `@-` and `.-` unfortunately match, but whatever.
-
     match("#_")
     match("#a")
     match("#z")
@@ -412,7 +415,6 @@ suite("tokens", function() {
     match("#Iñtërnâtiônàlizætiøn☃💩") // The last character is Pile of poo.
     match("#$", false)
 
-    match("#-") // Actually allowed by the spec.
     match("#-a")
     match("#-0")
     match("#-π")
