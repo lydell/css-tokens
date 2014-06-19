@@ -1,4 +1,4 @@
-### Version 0.3.0 (Unreleased) ###
+### Version 0.3.0 (2014-06-19) ###
 
 - Added: Support for `--custom-properties`. (Backwards-incompatible change.)
 - Fixed: `@-` and `.-` (followed by a non-name character) are now matched as
