@@ -16,11 +16,10 @@ suite("cssTokens", function() {
 })
 
 
-suite("cssTokens.names", function() {
+suite("cssTokens.matchToToken", function() {
 
-  test("is an array of strings", function() {
-    assert(util.isArray(cssTokens.names))
-    assert(cssTokens.names.every(function(name) { return typeof name === "string" }))
+  test("is a function", function() {
+    assert.equal(typeof cssTokens.matchToToken, "function")
   })
 
 })
@@ -32,20 +31,29 @@ suite("tokens", function() {
     suite(name, fn.bind(null, matchHelper.bind(null, name)))
   }
 
-  function matchHelper(name, string, expected) {
+  function matchHelper(type, string, expected, extra) {
+    extra = extra || {}
+    if (typeof expected === "object") {
+      extra = expected
+      expected = undefined
+    }
     cssTokens.lastIndex = 0
-    var match = cssTokens.exec(string)
-
-    var index = 1
-    while (match[index] === undefined) index++
-    var actualName = cssTokens.names[index-1]
+    var token = cssTokens.matchToToken(cssTokens.exec(string))
 
     test(string, function() {
       if (expected === false) {
-        assert.notEqual(actualName, name)
+        assert.notEqual(token.type, type)
       } else {
-        assert.equal(cssTokens.names[index-1], name)
-        assert.equal(match[0], (typeof expected === "string" ? expected : string))
+        assert.equal(token.type, type)
+        assert.equal(
+          token.value,
+          (typeof expected === "string" ? expected : string)
+        )
+        if ("closed" in extra) {
+          assert.equal(token.closed, extra.closed)
+        } else if (type === "string" || type === "comment") {
+          assert.equal(token.closed, true)
+        }
       }
     })
   }
@@ -80,10 +88,10 @@ suite("tokens", function() {
     match("/*/*/")
     match("/*\n\r \r\n*/")
 
-    match("/*")
-    match("/*/")
-    match("/*unclosed comment")
-    match("/*unclosed comment\n@new .Line { is: this; } code:any(.true, .false) {}")
+    match("/*", {closed: false})
+    match("/*/", {closed: false})
+    match("/*unclosed", {closed: false})
+    match("/*unclosed\n@new .Line{is:this;}code:any(.true,.false) {}", {closed: false})
 
   })
 
@@ -101,7 +109,7 @@ suite("tokens", function() {
     match("'\\\\\\''")
     match('"\\\\\\""')
     match("'\\1d306'")
-    match('"\\1d306')
+    match('"\\1d306"')
     match("'\\\n'")
     match('"\\\n"')
     match("'\\\r'")
@@ -113,22 +121,22 @@ suite("tokens", function() {
     match("'\"'")
     match('"\'"')
 
-    match("'")
-    match('"')
-    match("'unclosed string")
-    match('"unclosed string')
-    match("'\n", "'")
-    match('"\n', '"')
-    match("'\r", "'")
-    match('"\r', '"')
-    match("'\r\n", "'")
-    match('"\r\n', '"')
-    match("'\\\n")
-    match('"\\\n')
-    match("'\\\r")
-    match('"\\\r')
-    match("'\\\r\n")
-    match('"\\\r\n')
+    match("'", {closed: false})
+    match('"', {closed: false})
+    match("'unclosed", {closed: false})
+    match('"unclosed', {closed: false})
+    match("'\n", "'", {closed: false})
+    match('"\n', '"', {closed: false})
+    match("'\r", "'", {closed: false})
+    match('"\r', '"', {closed: false})
+    match("'\r\n", "'", {closed: false})
+    match('"\r\n', '"', {closed: false})
+    match("'\\\n", {closed: false})
+    match('"\\\n', {closed: false})
+    match("'\\\r", {closed: false})
+    match('"\\\r', {closed: false})
+    match("'\\\r\n", {closed: false})
+    match('"\\\r\n', {closed: false})
 
   })
 
@@ -465,15 +473,9 @@ suite("tokens", function() {
   })
 
 
-  token("empty", function(match) {
-
-    match("")
-
-  })
-
-
   token("invalid", function(match) {
 
+    match("")
     match("@")
     match("#")
     match(".")

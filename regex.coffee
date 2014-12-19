@@ -3,24 +3,21 @@
 
 # <http://www.w3.org/TR/css-syntax-3/#token-diagrams>
 
-string = (delimiter) ->
-  ///
-    #{delimiter}
-    (?:
-      [^ #{delimiter} \\ \r \n ]
-      |
-      \\(?: \r\n | [\s\S] )
-    )*
-    #{delimiter}?
-  ///.source
+# Don’t worry, you don’t need to know CoffeeScript. It is only used for its
+# readable regex syntax. Everything else is done in JavaScript in index.js.
 
 # <http://mathiasbynens.be/notes/css-escapes>
 escape = /// \\(?: [ \d a-f A-F ]{1,6}\s? | . ) ///.source
 
-
 module.exports = ///
-  ( # <whitespace>
-    \s+
+  ( # <string>
+    ([ ' " ])
+    (?:
+      (?!\2)[^ \\ \r \n ]
+      |
+      \\(?: \r\n | [\s\S] )
+    )*
+    (\2)?
   )
   |
   ( # <comment>
@@ -30,13 +27,7 @@ module.exports = ///
       |
       \*(?!/)
     )*
-    (?: \*/ )?
-  )
-  |
-  ( # <string>
-    #{string "'"}
-    |
-    #{string '"'}
+    ( \*/ )?
   )
   |
   ( # <number>
@@ -61,7 +52,7 @@ module.exports = ///
     (?:
       [ @ . ]?(?! -?\d )
       |
-      \# # Can be followed by digits to support hex colors. The spec also allows (several) dashes.
+      \#
     )
     (?! -+ (?![ \w \- \u0080-\uFFFF \\ ]) )
     (?:
@@ -85,11 +76,13 @@ module.exports = ///
     :{1,2}
   )
   |
-  ( # <empty>
-    ^$
+  ( # <whitespace>
+    \s+
   )
   |
   ( # <invalid>
+    ^$ # <empty>
+    |
     [\s\S] # Catch-all rule for anything not matched by the above.
   )
 ///g

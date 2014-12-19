@@ -1,3 +1,16 @@
+### Version 0.4.0 (2014-12-19) ###
+
+- Changed: The `cssTokens.names` array has been replaced with the
+  `cssTokens.matchToToken` function. The capturing groups of `cssTokens` are no
+  longer part of the public API; instead use said function. See this [gist] for
+  an example. (Backwards-incompatible change.)
+- Changed: The empty string is now considered an “invalid” token, instead an
+  “empty” token (its own group). (Backwards-incompatible change.)
+- Removed: component support. (Backwards-incompatible change.)
+
+[gist]: https://gist.github.com/lydell/be49dbf80c382c473004
+
+
 ### Version 0.3.0 (2014-06-19) ###
 
 - Added: Support for `--custom-properties`. (Backwards-incompatible change.)

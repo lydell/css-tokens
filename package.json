@@ -1,10 +1,9 @@
 {
   "name": "css-tokens",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Simon Lydell",
   "license": "MIT",
   "description": "A regex that tokenizes CSS.",
-  "main": "index.js",
   "keywords": [
     "CSS",
     "css",
@@ -14,10 +13,12 @@
   ],
   "repository": "lydell/css-tokens",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --ui tdd",
+    "build": "node generate-index.js",
+    "dev": "npm run build && npm test"
   },
   "devDependencies": {
-    "mocha": "^1.17.1",
-    "coffee-script": "~1.7.1"
+    "coffee-script": "^1.8.0",
+    "mocha": "^2.0.1"
   }
 }
