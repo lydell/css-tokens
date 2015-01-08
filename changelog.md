@@ -1,3 +1,8 @@
+### Version 0.4.1 (2015-01-08) ###
+
+- Fixed: \f is now recognized as a newline.
+
+
 ### Version 0.4.0 (2014-12-19) ###
 
 - Changed: The `cssTokens.names` array has been replaced with the
