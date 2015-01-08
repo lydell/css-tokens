@@ -366,6 +366,7 @@ suite("tokens", function() {
       match(c + "a_56åπ")
       match(c + "Iñtërnâtiônàlizætiøn☃💩") // The last character is Pile of poo.
       match(c + "$", false)
+      match(c + "a\u00a0\u2028\u2029b") // Unicode whitespace is allowed.
 
       match(c + "-a")
       match(c + "-0", false)
