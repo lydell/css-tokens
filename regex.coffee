@@ -7,13 +7,13 @@
 # readable regex syntax. Everything else is done in JavaScript in index.js.
 
 # <http://mathiasbynens.be/notes/css-escapes>
-escape = /// \\(?: [ \d a-f A-F ]{1,6}\s? | . ) ///.source
+escape = /// \\(?: [ \d a-f A-F ]{1,6}\s? | [^ \r \n \f ] ) ///.source
 
 module.exports = ///
   ( # <string>
     ([ ' " ])
     (?:
-      (?!\2)[^ \\ \r \n ]
+      (?!\2)[^ \\ \r \n \f ]
       |
       \\(?: \r\n | [\s\S] )
     )*
