@@ -7,13 +7,13 @@ module.exports = /((['"])(?:(?!\2)[^\\\r\n\f]|\\(?:\r\n|[\s\S]))*(\2)?)|(\/\*(?:
 
 module.exports.matchToToken = function(match) {
   token = {type: "invalid", value: match[0]}
-  if (match[ 1]) token.type = "string" , token.closed = !!match[3]
-  if (match[ 4]) token.type = "comment", token.closed = !!match[5]
-  if (match[ 6]) token.type = "number"
-  if (match[ 7]) token.type = "unquotedUrl"
-  if (match[ 8]) token.type = "name"
-  if (match[ 9]) token.type = "operator"
-  if (match[10]) token.type = "punctuation"
-  if (match[11]) token.type = "whitespace"
+       if (match[ 1]) token.type = "string" , token.closed = !!match[3]
+  else if (match[ 4]) token.type = "comment", token.closed = !!match[5]
+  else if (match[ 6]) token.type = "number"
+  else if (match[ 7]) token.type = "unquotedUrl"
+  else if (match[ 8]) token.type = "name"
+  else if (match[ 9]) token.type = "operator"
+  else if (match[10]) token.type = "punctuation"
+  else if (match[11]) token.type = "whitespace"
   return token
 }
