@@ -1,6 +1,6 @@
 ### Version 0.4.2 (2015-02-21) ###
 
-- Improved: `csstokens.matchToToken` performance.
+- Improved: `cssTokens.matchToToken` performance.
 
 
 ### Version 0.4.1 (2015-01-08) ###
