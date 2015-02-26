@@ -3,7 +3,7 @@
 
 // This regex comes from regex.coffee, and is inserted here by generate-index.js
 // (run `npm run build`).
-module.exports = /((['"])(?:(?!\2)[^\\\r\n\f]|\\(?:\r\n|[\s\S]))*(\2)?)|(\/\*(?:[^*]|\*(?!\/))*(\*\/)?)|([+-]?\d*\.?\d+(?:[eE][+-]?\d+)?)|(url\((?!\s*["'])\s*(?:[^"'()\\\s]|\\(?:[\da-fA-F]{1,6}\s?|[^\r\n\f]))*(?:\s*\))?)|((?:[@.]?(?!-?\d)|\#)(?!-+(?![\w\-\u0080-\uFFFF\\]))(?:[\w\-\u0080-\uFFFF]|\\(?:[\da-fA-F]{1,6}\s?|[^\r\n\f]))+)|([~|^$*]?=|[>~+*\/]|-)|([|[\](){},;!%]|:{1,2})|(\s+)|(^$|[\s\S])/g
+module.exports = /((['"])(?:(?!\2)[^\\\r\n\f]|\\(?:\r\n|[\s\S]))*(\2)?)|(\/\*(?:[^*]|\*(?!\/))*(\*\/)?)|([+-]?\d*\.?\d+(?:[eE][+-]?\d+)?)|(url\((?!\s*["'])\s*(?:[^"'()\\\s]|\\(?:[\da-fA-F]{1,6}\s?|[^\r\n\f]))*(?:\s*\))?)|((?:[@.]?(?!-?\d)|\#)(?!-+(?![\w\-\u0080-\uFFFF\\]))(?:[\w\-\u0080-\uFFFF]|\\(?:[\da-fA-F]{1,6}\s?|[^\r\n\f]))+)|([~|^$*]?=|[>~+*\/]|-|[|[\](){},;!%]|::?)|(\s+)|(^$|[\s\S])/g
 
 module.exports.matchToToken = function(match) {
   token = {type: "invalid", value: match[0]}
@@ -12,8 +12,7 @@ module.exports.matchToToken = function(match) {
   else if (match[ 6]) token.type = "number"
   else if (match[ 7]) token.type = "unquotedUrl"
   else if (match[ 8]) token.type = "name"
-  else if (match[ 9]) token.type = "operator"
-  else if (match[10]) token.type = "punctuation"
-  else if (match[11]) token.type = "whitespace"
+  else if (match[ 9]) token.type = "punctuator"
+  else if (match[10]) token.type = "whitespace"
   return token
 }

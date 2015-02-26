@@ -203,7 +203,7 @@ suite("tokens", function() {
   })
 
 
-  token("operator", function(match) {
+  token("punctuator", function(match) {
 
     match("~=")
     match("|=")
@@ -221,11 +221,6 @@ suite("tokens", function() {
     match("-/**/", "-")
     match("-''", "-")
     match("--custom-prop", false)
-
-  })
-
-
-  token("punctuation", function(match) {
 
     match("|")
     match("[")

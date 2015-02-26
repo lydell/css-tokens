@@ -62,18 +62,16 @@ module.exports = ///
     )+
   )
   |
-  ( # <operator>
+  ( # <punctuator>
     [ ~ | ^ $ * ]?=
     |
     [ > ~ + * / ]
     |
     -
-  )
-  |
-  ( # <punctuation>
+    |
     [ | [ \] ( ) { } , ; ! % ]
     |
-    :{1,2}
+    ::?
   )
   |
   ( # <whitespace>

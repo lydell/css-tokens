@@ -44,8 +44,7 @@ String, value: String}` object. The following types are available:
 - number
 - unquotedUrl
 - name
-- operator
-- punctuation
+- punctuator
 - whitespace
 - invalid
 
@@ -93,7 +92,7 @@ url('http://www.w3.org/2000/svg')
 ```
 
 The first line is matched as one single token (unquotedUrl), while the second
-is matched as four (name + punctuation + string + punctuation). This _could_ be
+is matched as four (name + punctuator + string + punctuator). This _could_ be
 fixed, but isn’t to simplify the regex.
 
 
