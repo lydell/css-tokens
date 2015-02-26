@@ -1,3 +1,11 @@
+### Version 1.0.0 (2015-02-26) ###
+
+- Changed: Merged the 'operator' and 'punctuation' types into 'punctuator', for
+  consistency with [js-tokens]. (Backwards-incompatible change.)
+
+[js-tokens]: https://github.com/lydell/js-tokens
+
+
 ### Version 0.4.2 (2015-02-21) ###
 
 - Improved: `cssTokens.matchToToken` performance.
