@@ -75,7 +75,7 @@ module.exports = ///
   )
   |
   ( # <whitespace>
-    \s+
+    [ \  \t \n \r \f ]+
   )
   |
   ( # <invalid>
