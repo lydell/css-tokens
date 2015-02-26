@@ -54,6 +54,9 @@ closed or not (see below).
 Strings come in two flavors. To distinguish them, check if the token starts with
 `'` or `"`.
 
+Names may start with `@` (as in at-rule names), `.` (as in class selectors) and
+`#` (as in id selectors and hex colors).
+
 For example usage, please see this [gist].
 
 [gist]: https://gist.github.com/lydell/be49dbf80c382c473004
