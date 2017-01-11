@@ -1,4 +1,4 @@
-Overview [![Build Status](https://travis-ci.org/lydell/css-tokens.png?branch=master)](https://travis-ci.org/lydell/css-tokens)
+Overview [![Build Status](https://travis-ci.org/lydell/css-tokens.svg?branch=master)](https://travis-ci.org/lydell/css-tokens)
 ========
 
 A regex that tokenizes CSS.
