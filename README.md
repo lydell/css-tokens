@@ -110,4 +110,4 @@ fixed, but isn’t to simplify the regex.
 License
 =======
 
-[The X11 (“MIT”) License](LICENSE).
+[MIT](LICENSE).
