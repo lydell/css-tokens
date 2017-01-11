@@ -1,3 +1,44 @@
+### Version 2.0.0 (2017-01-11) ###
+
+This release contains one breaking change, that should [improve performance in
+V8][v8-perf]:
+
+> So how can you, as a JavaScript developer, ensure that your RegExps are fast?
+> If you are not interested in hooking into RegExp internals, make sure that
+> neither the RegExp instance, nor its prototype is modified in order to get the
+> best performance:
+>
+> ```js
+> var re = /./g;
+> re.exec('');  // Fast path.
+> re.new_property = 'slow';
+> ```
+
+This module used to export a single regex, with `.matchToToken` bolted
+on, just like in the above example. This release changes the exports of
+the module to avoid this issue.
+
+Before:
+
+```js
+import cssTokens from "css-tokens"
+// or:
+var cssTokens = require("css-tokens")
+var matchToToken = cssTokens.matchToToken
+```
+
+After:
+
+```js
+import cssTokens, {matchToToken} from "css-tokens"
+// or:
+var cssTokens = require("css-tokens").default
+var matchToToken = require("css-tokens").matchToToken
+```
+
+[v8-perf]: http://v8project.blogspot.se/2017/01/speeding-up-v8-regular-expressions.html
+
+
 ### Version 1.0.1 (2015-06-20) ###
 
 - Fixed: Declared an undeclared variable.
