@@ -18,7 +18,7 @@
     "dev": "npm run build && npm test"
   },
   "devDependencies": {
-    "coffee-script": "~1.9.3",
-    "mocha": "^2.2.5"
+    "coffee-script": "~1.12.2",
+    "mocha": "^3.2.0"
   }
 }
