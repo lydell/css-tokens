@@ -4,7 +4,7 @@ Overview [![Build Status](https://travis-ci.org/lydell/css-tokens.png?branch=mas
 A regex that tokenizes CSS.
 
 ```js
-var cssTokens = require("css-tokens")
+var cssTokens = require("css-tokens").default
 
 var cssString = ".foo{prop: foo;}\n..."
 
@@ -19,7 +19,9 @@ Installation
 - `npm install css-tokens`
 
 ```js
-var cssTokens = require("css-tokens")
+import cssTokens from "css-tokens"
+// or:
+var cssTokens = require("css-tokens").default
 ```
 
 
@@ -34,7 +36,13 @@ The regex _always_ matches, even invalid CSS and the empty string.
 
 The next match is always directly after the previous.
 
-### `var token = cssTokens.matchToToken(match)` ###
+### `var token = matchToToken(match)` ###
+
+```js
+import {matchToToken} from "css-tokens"
+// or:
+var matchToToken = require("css-tokens").matchToToken
+```
 
 Takes a `match` returned by `cssTokens.exec(string)`, and returns a `{type:
 String, value: String}` object. The following types are available:
