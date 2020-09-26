@@ -1,3 +1,8 @@
+Deprecated
+==========
+
+Use [@csstools/tokenizer](https://github.com/csstools/tokenizer) instead.
+
 Overview [![Build Status](https://travis-ci.org/lydell/css-tokens.svg?branch=master)](https://travis-ci.org/lydell/css-tokens)
 ========
 
